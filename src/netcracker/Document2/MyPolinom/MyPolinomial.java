@@ -1,5 +1,7 @@
 package netcracker.Document2.MyPolinom;
 
+import java.util.Arrays;
+
 public class MyPolinomial {
     private double coeffs[];
 
@@ -40,6 +42,18 @@ public class MyPolinomial {
         return c;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyPolinomial that = (MyPolinomial) o;
+        return Arrays.equals(coeffs, that.coeffs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(coeffs);
+    }
 
     public MyPolinomial multiple(MyPolinomial right)
     {
